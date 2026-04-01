@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -11,6 +11,24 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      filters = {
+        git_ignored = false,
+      },
+    },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      pickers = {
+        find_files = {
+          no_ignore = true,
+        },
+      },
+    },
   },
 
   -- test new blink
