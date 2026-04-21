@@ -45,3 +45,18 @@ vim.api.nvim_create_autocmd("BufDelete", {
   end,
 })
 
+local luasnip = require "luasnip"
+
+vim.keymap.set({ "i", "s" }, "<Tab>", function()
+  if luasnip.expand_or_jumpable() then
+    luasnip.expand_or_jump()
+  else
+    return "<Tab>"
+  end
+end, { expr = true })
+
+vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  end
+end)

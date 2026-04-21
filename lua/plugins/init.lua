@@ -30,6 +30,29 @@ return {
       },
     },
   },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      -- ensure luasnip is used
+      local luasnip = require "luasnip"
+
+      opts.snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      }
+
+      return opts
+    end,
+  },
+
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
