@@ -45,6 +45,7 @@ vim.api.nvim_create_autocmd("BufDelete", {
   end,
 })
 
+--Snippets--
 local luasnip = require "luasnip"
 
 vim.keymap.set({ "i", "s" }, "<Tab>", function()
@@ -60,3 +61,9 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
     luasnip.jump(-1)
   end
 end)
+
+--CODE FOLDING--
+local o = vim.o
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldlevel = 99
