@@ -63,7 +63,13 @@ vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
 end)
 
 --CODE FOLDING--
-local o = vim.o
-o.foldmethod = "expr"
-o.foldexpr = "nvim_treesitter#foldexpr()"
-o.foldlevel = 99
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
+})
