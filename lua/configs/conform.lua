@@ -10,6 +10,7 @@ local options = {
     json = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },
+    python = { "ruff_format" },
     --python = { "prettier" },  -- remove this if you'd rather use a python-specific formatter
   },
   format_on_save = {
