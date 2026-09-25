@@ -54,3 +54,18 @@ require("gitsigns").setup {
     col = 1,
   },
 }
+
+--CODE FOLDING--
+require "utils.foldtext"
+
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldcolumn = "1"
+vim.o.foldtext = "v:lua.FoldText()"
+vim.opt.fillchars:append {
+  fold = " ",
+  foldopen = vim.fn.nr2char(0xeab4),
+  foldclose = vim.fn.nr2char(0xeab6),
+  foldsep = " ",
+}

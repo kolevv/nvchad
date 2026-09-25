@@ -62,6 +62,19 @@ return {
     end,
   },
 
+  {
+    "luukvbaal/statuscol.nvim",
+    lazy = false, -- NvChad lazy-loads plugins by default; the gutter must be ready immediately
+    config = function()
+      require "configs.statuscol"
+    end,
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy", -- load right after startup so z / <leader> popups work immediately
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
@@ -74,6 +87,8 @@ return {
         "vimdoc",
         "html",
         "css",
+        "json",
+        "jsonc",
       },
     },
   },
