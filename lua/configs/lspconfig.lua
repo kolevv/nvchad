@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "vtsls", "dockerls", "lua_ls" }
+local servers = { "html", "cssls", "vtsls", "dockerls", "lua_ls", "ruby_lsp" }
 vim.lsp.enable(servers)
 
 -- configure pylsp separately to use the venv binary
